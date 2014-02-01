@@ -2,9 +2,14 @@
 # Simple setup.sh for configuring Ubuntu 12.04 LTS EC2 instance
 # for headless setup. 
 
+# Get the latest version of git
+sudo apt-get dist-upgrade
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get install -y git
+
 # Install nvm: node-version manager
 # https://github.com/creationix/nvm
-sudo apt-get install -y git
 sudo apt-get install -y curl
 curl https://raw.github.com/creationix/nvm/master/install.sh | sh
 
@@ -39,7 +44,7 @@ fi
 if [ -d .emacs.d/ ]; then
     mv .emacs.d .emacs.d~
 fi
-git clone https://github.com/startup-class/dotfiles.git
+git clone https://github.com/sapanda88/dotfiles.git
 ln -sb dotfiles/.screenrc .
 ln -sb dotfiles/.bash_profile .
 ln -sb dotfiles/.bashrc .
